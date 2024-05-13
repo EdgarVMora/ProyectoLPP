@@ -248,7 +248,7 @@ Procedimiento PresentacionNumeroDos
 inicio 
 escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
 llamar nueva_linea
-escriba "|   	                             BIENVENIDO A KLON                                            |"
+escriba "|   	                             BIENVENIDO A KLON                                           |"
 llamar nueva_linea
 escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
 llamar nueva_linea
@@ -266,7 +266,7 @@ continuar <- verdadero
 
 escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
 llamar nueva_linea
-escriba "|   	                             BIENVENIDO A KLON                                            |"
+escriba "|   	                             BIENVENIDO A KLON                                           |"
 llamar nueva_linea
 escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
 llamar nueva_linea
@@ -304,22 +304,24 @@ escriba "|- - - - - - - - - - - - - - - - - - | - - - - - - - - - - - - - - - -|
 llamar nueva_linea
 escriba "|                                    |   Si desea salir de tienda, ingrese la opcion numero 0    |"
 llamar nueva_linea
-escriba "|- - - - - - - - - - - - - - - - - - | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |"
-llamar nueva_linea
 Repita
+escriba "|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |"
+llamar nueva_linea
 escriba "|   Elija un numero dentro de nuestras opciones para comprar ahora y estrenar mañana             |"
 llamar nueva_linea
-escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
 llamar nueva_linea
 lea opcion 
 llamar nueva_linea
 escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+llamar nueva_linea
 Si (opcion = 1) Entonces
 	llamar PresentacionNumeroDos()
 	llamar nueva_linea
 	llamar ObtenerPlayeras()
 	llamar nueva_linea
 	llamar MostrarPlayeras()
+	llamar nueva_linea
 		SINO
 		Si (opcion = 2) Entonces
 			llamar PresentacionNumeroDos()
@@ -327,6 +329,7 @@ Si (opcion = 1) Entonces
 			llamar ObtenerPantalones()
 			llamar nueva_linea
 			llamar MostrarPantalones()
+			llamar nueva_linea
 			SINO
 				Si (opcion = 3) Entonces
 					llamar PresentacionNumeroDos()
@@ -334,6 +337,7 @@ Si (opcion = 1) Entonces
 					llamar ObtenerPantalones()
 					llamar nueva_linea
 					llamar MostrarPantalones()
+					llamar nueva_linea
 					SINO
 						Si (opcion = 4) Entonces
 							llamar PresentacionNumeroDos()
@@ -341,6 +345,7 @@ Si (opcion = 1) Entonces
 							llamar ObtenerAccesorios()
 							llamar nueva_linea
 							llamar MostrarAccesorios()
+							llamar nueva_linea
 							SINO
 								Si (opcion = 5) Entonces 
 								 	llamar PresentacionNumeroDos()
@@ -348,6 +353,7 @@ Si (opcion = 1) Entonces
 									llamar ObtenerAccesorios()
 									llamar nueva_linea
 									llamar MostrarAccesorios()
+									llamar nueva_linea
 									SINO
 										Si (opcion = 6) Entonces
 										llamar PresentacionNumeroDos()
@@ -367,12 +373,14 @@ Si (opcion = 1) Entonces
 										llamar MostrarTenis()
 										llamar nueva_linea
 										llamar MostrarAccesorios()
+										llamar nueva_linea
 										SINO	
 											Si (opcion = 0)Entonces
 											llamar nueva_linea
 											escriba "Gracias por visitar KLON"
 											continuar <- falso
 											SINO
+											llamar nueva_linea
 											Escriba "Por favor ingrese una opcion entre el 1 y 5"
 											Fin si
 										Fin Si
