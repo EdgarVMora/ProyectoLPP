@@ -1,0 +1,415 @@
+Tipo tArchivo es archivo secuencial
+registro rPlayeras
+arreglo[2,5] de cadena [20] aLetrasMarcas
+arreglo[2,5] de cadena [20] aLetrasColores
+arreglo[2,5] de cadena [20] aLetrasModelos
+arreglo[2,5] de cadena [20] aLetrasTallas
+arreglo[2,5] de entero aNumerosPrecios
+fin registro
+
+registro rPantalones
+arreglo[2,5] de cadena [20] aLetrasMarcas
+arreglo[2,5] de cadena [20] aLetrasColores
+arreglo[2,5] de cadena [20] aLetrasModelos
+arreglo[2,5] de cadena [20] aLetrasTallas
+arreglo[2,5] de entero aNumerosPrecios
+fin registro
+
+registro rVestidos
+arreglo[2,5] de cadena [20] aLetrasMarcas
+arreglo[2,5] de cadena [20] aLetrasColores
+arreglo[2,5] de cadena [20] aLetrasModelos
+arreglo[2,5] de cadena [20] aLetrasTallas
+arreglo[2,5] de entero aNumerosPrecios
+fin registro
+
+registro rTenis
+arreglo[2,5] de cadena [20] aLetrasMarcas
+arreglo[2,5] de cadena [20] aLetrasColores
+arreglo[2,5] de cadena [20] aLetrasModelos
+arreglo[2,5] de cadena [20] aLetrasTallas
+arreglo[2,5] de entero aNumerosPrecios
+fin registro
+
+registro rAccesorios
+arreglo[2,5] de cadena [20] aLetrasMarcas
+arreglo[2,5] de cadena [20] aLetrasColores
+arreglo[2,5] de cadena [20] aLetrasModelos
+arreglo[2,5] de cadena [20] aLetrasTallas
+arreglo[2,5] de entero aNumerosPrecios
+fin registro
+
+
+//variables globales
+entero i
+entero j
+booleano continuar
+
+//Asignacion de variables
+tArchivo pArchivo
+rPlayeras vPlayeras
+rPantalones vPantalones
+rVestidos vVestidos
+rTenis vTenis
+rAccesorios vAccesorios
+
+Procedimiento ObtenerPlayeras
+Inicio
+  abrir "C:\Users\et_de\OneDrive\Escritorio\ProyectoCompras\datosPlayerasLPP.txt" como pArchivo para Lectura
+	llamar nueva_linea
+	para i<- 1 hasta 2 haga
+		para j <- 1 hasta 5 haga
+		Leer pArchivo,vPlayeras.aLetrasMarcas[i,j]
+		Leer pArchivo,vPlayeras.aLetrasColores[i,j]
+		Leer pArchivo,vPlayeras.aLetrasModelos[i,j]
+		Leer pArchivo,vPlayeras.aLetrasTallas[i,j]
+		Leer pArchivo,vPlayeras.aNumerosPrecios[i,j]
+		fin para
+	fin para
+	cerrar pArchivo
+Fin
+
+Procedimiento ObtenerPantalones
+inicio
+abrir "C:\Users\et_de\OneDrive\Escritorio\ProyectoCompras\datosPantalonesLPP.txt" como pArchivo para Lectura
+	para i<- 1 hasta 2 haga
+		para j <- 1 hasta 5 haga
+	        Leer pArchivo, vPantalones.aLetrasMarcas[i,j]
+            Leer pArchivo, vPantalones.aLetrasColores[i,j]
+            Leer pArchivo, vPantalones.aLetrasModelos[i,j]
+            Leer pArchivo, vPantalones.aLetrasTallas[i,j]
+            Leer pArchivo, vPantalones.aNumerosPrecios[i,j]
+		fin para
+	fin para
+cerrar pArchivo
+Fin
+
+Procedimiento ObtenerVestidos
+inicio
+abrir "C:\Users\et_de\OneDrive\Escritorio\ProyectoCompras\datosVestidosLPP.txt" como pArchivo para Lectura
+	para i<- 1 hasta 2 haga
+		para j <- 1 hasta 5 haga
+	        Leer pArchivo, vVestidos.aLetrasMarcas[i,j]
+            Leer pArchivo, vVestidos.aLetrasColores[i,j]
+            Leer pArchivo, vVestidos.aLetrasModelos[i,j]
+            Leer pArchivo, vVestidos.aLetrasTallas[i,j]
+            Leer pArchivo, vVestidos.aNumerosPrecios[i,j]
+		fin para
+	fin para
+cerrar pArchivo
+Fin
+
+Procedimiento ObtenerTenis
+inicio
+abrir "C:\Users\et_de\OneDrive\Escritorio\ProyectoCompras\datosTenisLPP.txt" como pArchivo para Lectura
+	para i<- 1 hasta 2 haga
+		para j <- 1 hasta 5 haga
+	        Leer pArchivo, vTenis.aLetrasMarcas[i,j]
+            Leer pArchivo, vTenis.aLetrasColores[i,j]
+            Leer pArchivo, vTenis.aLetrasModelos[i,j]
+            Leer pArchivo, vTenis.aLetrasTallas[i,j]
+            Leer pArchivo, vTenis.aNumerosPrecios[i,j]
+		fin para
+	fin para
+cerrar pArchivo
+Fin
+
+Procedimiento ObtenerAccesorios
+inicio
+abrir "C:\Users\et_de\OneDrive\Escritorio\ProyectoCompras\datosAccesoriosLPP.txt" como pArchivo para Lectura
+	para i<- 1 hasta 2 haga
+		para j <- 1 hasta 5 haga
+	        Leer pArchivo, vAccesorios.aLetrasMarcas[i,j]
+            Leer pArchivo, vAccesorios.aLetrasColores[i,j]
+            Leer pArchivo, vAccesorios.aLetrasModelos[i,j]
+            Leer pArchivo, vAccesorios.aLetrasTallas[i,j]
+            Leer pArchivo, vAccesorios.aNumerosPrecios[i,j]
+		fin para
+	fin para
+cerrar pArchivo
+Fin
+
+Procedimiento MostrarPlayeras
+inicio
+escriba "***Playeras***"
+llamar nueva_linea
+	para i<- 1 hasta 2 haga
+		para j <- 1 hasta 5 haga
+      escriba "Marca: "
+      escriba vPlayeras.aLetrasMarcas[i,j]
+      escriba "| Color: "
+      escriba vPlayeras.aLetrasColores[i,j]
+      escriba "| Modelo: "
+      escriba vPlayeras.aLetrasModelos[i,j]
+      escriba "|Talla: "
+      escriba vPlayeras.aLetrasTallas[i,j]
+      escriba "| Precio: "
+      escriba vPlayeras.aNumerosPrecios[i,j]
+      escriba " pesos mexicanos."
+      llamar nueva_linea
+		fin para
+	fin para
+Fin
+
+Procedimiento MostrarPantalones
+inicio 
+escriba "***Pantalones***"
+llamar nueva_linea
+	Para i <- 1 Hasta 2 Haga
+        /* bloque encargado de las columnas */
+        Para j <- 1 Hasta 5 Haga
+         escriba "Marca: "
+            escriba vPantalones.aLetrasMarcas[i,j]
+            escriba "| Color: "
+            escriba vPantalones.aLetrasColores[i,j]
+            escriba "| Modelo: "
+            escriba vPantalones.aLetrasModelos[i,j]
+            escriba "| Talla: "
+            escriba vPantalones.aLetrasTallas[i,j]
+            escriba "| Precio: "
+            escriba vPantalones.aNumerosPrecios[i,j]
+            escriba " pesos mexicanos."
+            llamar nueva_linea
+        fin para
+	fin para
+Fin
+
+Procedimiento MostrarVestidos
+inicio 
+escriba "***Vestidos***"
+llamar nueva_linea
+	Para i <- 1 Hasta 2 Haga
+        /* bloque encargado de las columnas */
+        Para j <- 1 Hasta 5 Haga
+         escriba "Marca: "
+          escriba vVestidos.aLetrasMarcas[i,j]
+            escriba "| Color: "
+            escriba vVestidos.aLetrasColores[i,j]
+            escriba "| Modelo: "
+            escriba vVestidos.aLetrasModelos[i,j]
+            escriba "| Talla: "
+            escriba vVestidos.aLetrasTallas[i,j]
+            escriba "| Precio: "
+            escriba vVestidos.aNumerosPrecios[i,j]
+            escriba " pesos mexicanos."
+            llamar nueva_linea
+        fin para
+	fin para
+Fin
+
+Procedimiento MostrarTenis
+inicio 
+escriba "***Tenis***"
+llamar nueva_linea
+	Para i <- 1 Hasta 2 Haga
+        /* bloque encargado de las columnas */
+        Para j <- 1 Hasta 5 Haga
+         escriba "Marca: "
+          escriba vTenis.aLetrasMarcas[i,j]
+            escriba "| Color: "
+            escriba vTenis.aLetrasColores[i,j]
+            escriba "| Modelo: "
+            escriba vTenis.aLetrasModelos[i,j]
+            escriba "| Talla: "
+            escriba vTenis.aLetrasTallas[i,j]
+            escriba "| Precio: "
+            escriba vTenis.aNumerosPrecios[i,j]
+            escriba " pesos mexicanos."
+            llamar nueva_linea
+        fin para
+	fin para
+Fin
+
+Procedimiento MostrarAccesorios
+inicio 
+escriba "***Accesorios***"
+llamar nueva_linea
+	Para i <- 1 Hasta 2 Haga
+        /* bloque encargado de las columnas */
+        Para j <- 1 Hasta 5 Haga
+         escriba "Marca: "
+          escriba vAccesorios.aLetrasMarcas[i,j]
+            escriba "| Color: "
+            escriba vAccesorios.aLetrasColores[i,j]
+            escriba "| Modelo: "
+            escriba vAccesorios.aLetrasModelos[i,j]
+            escriba "| Talla: "
+            escriba vAccesorios.aLetrasTallas[i,j]
+            escriba "| Precio: "
+            escriba vAccesorios.aNumerosPrecios[i,j]
+            escriba " pesos mexicanos."
+            llamar nueva_linea
+        fin para
+	fin para
+Fin
+
+//Procedimiento para cargar segundo menu
+Procedimiento PresentacionNumeroDos
+inicio 
+escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+llamar nueva_linea
+escriba "|   	                             BIENVENIDO A KLON                                            |"
+llamar nueva_linea
+escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+llamar nueva_linea
+escriba "|                           Aqui esta la categoria que selecciono                                |"
+llamar nueva_linea
+escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+
+Fin
+
+Procedimiento Presentacion
+entero opcion
+
+inicio
+continuar <- verdadero
+
+escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+llamar nueva_linea
+escriba "|   	                             BIENVENIDO A KLON                                            |"
+llamar nueva_linea
+escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+llamar nueva_linea
+escriba "|              Elija un numero, sera la opcion para buscar su ropa favorita                      |"
+llamar nueva_linea
+escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+llamar nueva_linea
+escriba "|   V Enviar a Puebla Centro 75443   |           Nuestros Productos destacados                   |"
+llamar nueva_linea
+escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+llamar nueva_linea
+escriba "|  1.-Playeras                       |            LACOSTE             |         ADIDAS           |"
+llamar nueva_linea
+escriba "|                                    |           Polo Azul            |    Tenis Casual Negro    |"
+llamar nueva_linea
+escriba "|  2.-Pantalones                     |        De $1500 s $1200        |          $2200           |"
+llamar nueva_linea
+escriba "|                                    |  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+llamar nueva_linea
+escriba "|  3.-Vestidos                       |              ZARA              |          LEVIS           |" 
+llamar nueva_linea
+escriba "|                                    |        Vestido Azul Largo      |      Pantalon Skinny     |"
+llamar nueva_linea
+escriba "|  4.-Tenis                          |             $2500              |     De $3000 a $2200     |"
+llamar nueva_linea
+escriba "|                                    | - - - - - - - - - - - - - - - -| - - - - - - - - - - - - -|"
+llamar nueva_linea
+escriba "|  5.-Accesorios                     |          CALVIN KLEIN          |          ARMANI          |"
+llamar nueva_linea
+escriba "|                                    |           Bolsa Azul           |        Bolso Negro       |"
+llamar nueva_linea
+escriba "|  6.-Ver toda la tienda             |             $3000              |           $3200          |"
+llamar nueva_linea
+escriba "|- - - - - - - - - - - - - - - - - - | - - - - - - - - - - - - - - - -| - - - - - - - - - - - - -|"
+llamar nueva_linea
+escriba "|                                    |   Si desea salir de tienda, ingrese la opcion numero 0    |"
+llamar nueva_linea
+escriba "|- - - - - - - - - - - - - - - - - - | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |"
+llamar nueva_linea
+Repita
+escriba "|   Elija un numero dentro de nuestras opciones para comprar ahora y estrenar mañana             |"
+llamar nueva_linea
+escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+llamar nueva_linea
+lea opcion 
+llamar nueva_linea
+escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+Si (opcion = 1) Entonces
+	llamar PresentacionNumeroDos()
+	llamar nueva_linea
+	llamar ObtenerPlayeras()
+	llamar nueva_linea
+	llamar MostrarPlayeras()
+		SINO
+		Si (opcion = 2) Entonces
+			llamar PresentacionNumeroDos()
+			llamar nueva_linea
+			llamar ObtenerPantalones()
+			llamar nueva_linea
+			llamar MostrarPantalones()
+			SINO
+				Si (opcion = 3) Entonces
+					llamar PresentacionNumeroDos()
+					llamar nueva_linea
+					llamar ObtenerPantalones()
+					llamar nueva_linea
+					llamar MostrarPantalones()
+					SINO
+						Si (opcion = 4) Entonces
+							llamar PresentacionNumeroDos()
+							llamar nueva_linea
+							llamar ObtenerAccesorios()
+							llamar nueva_linea
+							llamar MostrarAccesorios()
+							SINO
+								Si (opcion = 5) Entonces 
+								 	llamar PresentacionNumeroDos()
+									llamar nueva_linea
+									llamar ObtenerAccesorios()
+									llamar nueva_linea
+									llamar MostrarAccesorios()
+									SINO
+										Si (opcion = 6) Entonces
+										llamar PresentacionNumeroDos()
+										llamar nueva_linea
+										llamar ObtenerPlayeras()
+										llamar ObtenerPantalones()
+										llamar ObtenerVestidos()
+										llamar ObtenerTenis()
+										llamar ObtenerAccesorios()
+										llamar nueva_linea
+										llamar MostrarPlayeras()
+										llamar nueva_linea
+										llamar MostrarPantalones()
+										llamar nueva_linea
+										llamar MostrarVestidos()
+										llamar nueva_linea
+										llamar MostrarTenis()
+										llamar nueva_linea
+										llamar MostrarAccesorios()
+										SINO	
+											Si (opcion = 0)Entonces
+											llamar nueva_linea
+											escriba "Gracias por visitar KLON"
+											continuar <- falso
+											SINO
+											Escriba "Por favor ingrese una opcion entre el 1 y 5"
+											Fin si
+										Fin Si
+								Fin si
+						Fin si
+				Fin si
+		Fin si
+fin si
+Hasta (continuar = falso)
+Fin
+
+//Programa inicial
+inicio
+llamar Presentacion()
+llamar nueva_linea
+
+
+fin
+
+/*programa inicial
+inicio 
+llamar ObtenerPlayeras()
+llamar ObtenerPantalones()
+llamar ObtenerVestidos()
+llamar ObtenerTenis()
+llamar ObtenerAccesorios()
+
+llamar Presentacion()
+llamar nueva_linea
+
+/*llamar MostrarPlayeras()
+llamar nueva_linea
+llamar MostrarPantalones()
+llamar nueva_linea
+llamar MostrarVestidos()
+llamar nueva_linea
+llamar MostrarTenis()
+llamar nueva_linea
+llamar MostrarAccesorios()
+*/
