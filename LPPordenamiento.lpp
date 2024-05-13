@@ -1,0 +1,106 @@
+Tipo tArchivo es archivo secuencial
+registro rPlayeras
+arreglo[2,5] de cadena [20] aLetrasMarcas
+arreglo[2,5] de cadena [20] aLetrasColores
+arreglo[2,5] de cadena [20] aLetrasModelos
+arreglo[2,5] de cadena [20] aLetrasTallas
+arreglo[2,5] de entero aNumerosPrecios
+fin registro
+
+//variables globales
+entero i
+entero j
+
+//Asignacion de variables
+tArchivo pArchivo
+rPlayeras vPlayeras
+
+Procedimiento ObtenerPlayeras
+Inicio
+  abrir "C:\Users\et_de\OneDrive\Escritorio\ProyectoCompras\datosPlayerasLPP.txt" como pArchivo para Lectura
+  llamar nueva_linea
+	para i<- 1 hasta 2 haga
+		para j <- 1 hasta 5 haga
+		Leer pArchivo,vPlayeras.aLetrasMarcas[i,j]
+		Leer pArchivo,vPlayeras.aLetrasColores[i,j]
+		Leer pArchivo,vPlayeras.aLetrasModelos[i,j]
+		Leer pArchivo,vPlayeras.aLetrasTallas[i,j]
+		Leer pArchivo,vPlayeras.aNumerosPrecios[i,j]
+		fin para
+	fin para
+	cerrar pArchivo
+Fin
+
+Procedimiento OrdenarArregloPlayeras
+Entero i
+Entero j
+Entero k
+Cadena [50] temp
+Entero tempPrecio
+Inicio
+    // Algoritmo de ordenamiento de burbuja
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 4 Haga
+            Para k <- 1 Hasta 5-j Haga
+            Si (vPlayeras.aNumerosPrecios[i, k] > vPlayeras.aNumerosPrecios[i, k+1]) Entonces
+                    // Intercambia marcas
+                    temp <- vPlayeras.aLetrasMarcas[i, k]
+                    vPlayeras.aLetrasMarcas[i, k] <- vPlayeras.aLetrasMarcas[i, k+1]
+                    vPlayeras.aLetrasMarcas[i, k+1] <- temp
+                    
+                    // Intercambia colores
+                    temp <- vPlayeras.aLetrasColores[i, k]
+                    vPlayeras.aLetrasColores[i, k] <- vPlayeras.aLetrasColores[i, k+1]
+                    vPlayeras.aLetrasColores[i, k+1] <- temp
+                    
+                    // Intercambia modelos
+                    temp <- vPlayeras.aLetrasModelos[i, k]
+                    vPlayeras.aLetrasModelos[i, k] <- vPlayeras.aLetrasModelos[i, k+1]
+                    vPlayeras.aLetrasModelos[i, k+1] <- temp
+                    
+                    // Intercambia tallas
+                    temp <- vPlayeras.aLetrasTallas[i, k]
+                    vPlayeras.aLetrasTallas[i, k] <- vPlayeras.aLetrasTallas[i, k+1]
+                    vPlayeras.aLetrasTallas[i, k+1] <- temp
+                    
+                    // Intercambia precios
+                    tempPrecio <- vPlayeras.aNumerosPrecios[i, k]
+                    vPlayeras.aNumerosPrecios[i, k] <- vPlayeras.aNumerosPrecios[i, k+1]
+                    vPlayeras.aNumerosPrecios[i, k+1] <- tempPrecio
+                Fin Si
+            Fin Para
+        Fin Para
+    Fin Para
+Fin
+
+
+Procedimiento MostrarPlayeras
+inicio
+llamar OrdenarArregloPlayeras()
+escriba "***Playeras***"
+llamar nueva_linea
+	para i<- 1 hasta 2 haga
+		para j <- 1 hasta 5 haga
+      escriba "Marca: "
+      escriba vPlayeras.aLetrasMarcas[i,j]
+      escriba "| Color: "
+      escriba vPlayeras.aLetrasColores[i,j]
+      escriba "| Modelo: "
+      escriba vPlayeras.aLetrasModelos[i,j]
+      escriba "|Talla: "
+      escriba vPlayeras.aLetrasTallas[i,j]
+      escriba "| Precio: "
+      escriba vPlayeras.aNumerosPrecios[i,j]
+      escriba " pesos mexicanos."
+      llamar nueva_linea
+		fin para
+	fin para
+Fin
+
+//Porgrama inicial
+inicio
+llamar ObtenerPlayeras()
+llamar OrdenarArregloPlayeras()
+llamar nueva_linea
+llamar MostrarPlayeras()
+fin

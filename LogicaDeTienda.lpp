@@ -134,6 +134,8 @@ inicio
 escriba "***Playeras***"
 llamar nueva_linea
 	para i<- 1 hasta 2 haga
+	Escriba "Productos Destacados"
+	llamar nueva_linea
 		para j <- 1 hasta 5 haga
       escriba "Marca: "
       escriba vPlayeras.aLetrasMarcas[i,j]
@@ -156,7 +158,8 @@ inicio
 escriba "***Pantalones***"
 llamar nueva_linea
 	Para i <- 1 Hasta 2 Haga
-        /* bloque encargado de las columnas */
+	Escriba "Productos Destacados"
+	llamar nueva_linea
         Para j <- 1 Hasta 5 Haga
          escriba "Marca: "
             escriba vPantalones.aLetrasMarcas[i,j]
@@ -179,7 +182,8 @@ inicio
 escriba "***Vestidos***"
 llamar nueva_linea
 	Para i <- 1 Hasta 2 Haga
-        /* bloque encargado de las columnas */
+	Escriba "Productos Destacados"
+	llamar nueva_linea
         Para j <- 1 Hasta 5 Haga
          escriba "Marca: "
           escriba vVestidos.aLetrasMarcas[i,j]
@@ -202,7 +206,8 @@ inicio
 escriba "***Tenis***"
 llamar nueva_linea
 	Para i <- 1 Hasta 2 Haga
-        /* bloque encargado de las columnas */
+	Escriba "Productos Destacados"
+	llamar nueva_linea
         Para j <- 1 Hasta 5 Haga
          escriba "Marca: "
           escriba vTenis.aLetrasMarcas[i,j]
@@ -225,7 +230,8 @@ inicio
 escriba "***Accesorios***"
 llamar nueva_linea
 	Para i <- 1 Hasta 2 Haga
-        /* bloque encargado de las columnas */
+	Escriba "Productos Destacados"
+	llamar nueva_linea
         Para j <- 1 Hasta 5 Haga
          escriba "Marca: "
           escriba vAccesorios.aLetrasMarcas[i,j]
@@ -255,15 +261,14 @@ llamar nueva_linea
 escriba "|                           Aqui esta la categoria que selecciono                                |"
 llamar nueva_linea
 escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-
 Fin
+
+
 
 Procedimiento Presentacion
 entero opcion
-
 inicio
 continuar <- verdadero
-
 escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
 llamar nueva_linea
 escriba "|   	                             BIENVENIDO A KLON                                           |"
@@ -334,17 +339,17 @@ Si (opcion = 1) Entonces
 				Si (opcion = 3) Entonces
 					llamar PresentacionNumeroDos()
 					llamar nueva_linea
-					llamar ObtenerPantalones()
+					llamar ObtenerVestidos()
 					llamar nueva_linea
-					llamar MostrarPantalones()
+					llamar MostrarVestidos()
 					llamar nueva_linea
 					SINO
 						Si (opcion = 4) Entonces
 							llamar PresentacionNumeroDos()
 							llamar nueva_linea
-							llamar ObtenerAccesorios()
+							llamar ObtenerTenis()
 							llamar nueva_linea
-							llamar MostrarAccesorios()
+							llamar MostrarTenis()
 							llamar nueva_linea
 							SINO
 								Si (opcion = 5) Entonces 
