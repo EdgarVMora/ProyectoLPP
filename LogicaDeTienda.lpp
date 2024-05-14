@@ -41,9 +41,17 @@ fin registro
 
 
 //variables globales
+
 entero i
 entero j
+entero busquedaEspecifica
+
+cadena [100] articuloBuscado
+
 booleano continuar
+booleano encontrar
+
+
 
 //Asignacion de variables
 tArchivo pArchivo
@@ -127,6 +135,66 @@ abrir "C:\Users\et_de\OneDrive\Escritorio\ProyectoCompras\datosAccesoriosLPP.txt
 		fin para
 	fin para
 cerrar pArchivo
+Fin
+
+Procedimiento MostrarProductosP
+inicio
+	escriba "Marca: "
+    escriba vPlayeras.aLetrasMarcas[i,j]
+    escriba "| Color: "
+    escriba vPlayeras.aLetrasColores[i,j]
+    escriba "| Modelo: "
+    escriba vPlayeras.aLetrasModelos[i,j]
+    escriba "|Talla: "
+    escriba vPlayeras.aLetrasTallas[i,j]
+    escriba "| Precio: "
+    escriba vPlayeras.aNumerosPrecios[i,j]
+    escriba " pesos mexicanos."
+fin
+
+Procedimiento MostrarProductosPt
+inicio 
+	escriba "Marca: "
+	escriba vPantalones.aLetrasMarcas[i,j]
+    escriba "| Color: "
+    escriba vPantalones.aLetrasColores[i,j]
+    escriba "| Modelo: "
+    escriba vPantalones.aLetrasModelos[i,j]
+    escriba "| Talla: "
+    escriba vPantalones.aLetrasTallas[i,j]
+    escriba "| Precio: "
+    escriba vPantalones.aNumerosPrecios[i,j]
+    escriba " pesos mexicanos."
+fin
+
+Procedimiento MostrarProductosV
+inicio
+escriba "Marca: "
+ escriba vVestidos.aLetrasMarcas[i,j]
+ escriba "| Color: "
+ escriba vVestidos.aLetrasColores[i,j]
+ escriba "| Modelo: "
+ escriba vVestidos.aLetrasModelos[i,j]
+ escriba "| Talla: "
+ escriba vVestidos.aLetrasTallas[i,j]
+ escriba "| Precio: "
+ escriba vVestidos.aNumerosPrecios[i,j]
+ escriba " pesos mexicanos."
+fin
+
+Procedimiento MostrarProductosT
+inicio
+escriba "Marca: "
+          escriba vTenis.aLetrasMarcas[i,j]
+            escriba "| Color: "
+            escriba vTenis.aLetrasColores[i,j]
+            escriba "| Modelo: "
+            escriba vTenis.aLetrasModelos[i,j]
+            escriba "| Talla: "
+            escriba vTenis.aLetrasTallas[i,j]
+            escriba "| Precio: "
+            escriba vTenis.aNumerosPrecios[i,j]
+            escriba " pesos mexicanos."
 Fin
 
 Procedimiento MostrarPlayeras
@@ -249,6 +317,532 @@ llamar nueva_linea
 	fin para
 Fin
 
+Procedimiento BuscarPorPlayeras(cadena [50] articulo)
+inicio 
+encontrar <- falso
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vPlayeras.aLetrasMarcas[i, j] = articulo Entonces
+            llamar nueva_linea
+            	escriba "Accesorio encontrado:"
+              	llamar MostrarProductosP()
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vPlayeras.aLetrasModelos[i, j] = articulo Entonces
+            llamar nueva_linea
+                escriba "Accesorio encontrado:"
+                llamar MostrarProductosP()
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vPlayeras.aLetrasTallas[i, j] = articulo Entonces
+            llamar nueva_linea
+                escriba "Accesorio encontrado:"
+                llamar MostrarProductosP()
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Si No encontrar entonces
+    llamar nueva_linea
+    Escriba "no se encontro el accesorio buscado" 
+    Fin Si                           
+fin
+
+Procedimiento BuscarPorPantalones(cadena [50] articulo)
+inicio 
+Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vPantalones.aLetrasMarcas[i, j] = articulo Entonces
+            llamar nueva_linea
+            	escriba "Accesorio encontrado:"
+              	llamar MostrarProductosPt()
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vPantalones.aLetrasModelos[i, j] = articulo Entonces
+            llamar nueva_linea
+                escriba "Accesorio encontrado:"
+                llamar MostrarProductosPt()
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vPantalones.aLetrasTallas[i, j] = articulo Entonces
+            llamar nueva_linea
+                escriba "Accesorio encontrado:"
+                llamar MostrarProductosPt()
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Si No encontrar entonces
+    llamar nueva_linea
+    Escriba "no se encontro el accesorio buscado" 
+    Fin Si                           
+fin
+
+
+Procedimiento BuscarPorVestidos(cadena [50] articulo)
+inicio
+encontrar <- falso
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vVestidos.aLetrasMarcas[i, j] = articulo Entonces
+            llamar nueva_linea
+            	escriba "Accesorio encontrado:"
+              	llamar MostrarProductosV()
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vVestidos.aLetrasModelos[i, j] = articulo Entonces
+            llamar nueva_linea
+                escriba "Accesorio encontrado:"
+                llamar MostrarProductosV()
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vVestidos.aLetrasTallas[i, j] = articulo Entonces
+            llamar nueva_linea
+                escriba "Accesorio encontrado:"
+                llamar MostrarProductosV()
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Si No encontrar entonces
+    llamar nueva_linea
+    Escriba "no se encontro el accesorio buscado" 
+    Fin Si                           
+Fin
+
+Procedimiento BuscarPorTenis(cadena [50] articulo)
+inicio
+Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vTenis.aLetrasMarcas[i, j] = articulo Entonces
+            llamar nueva_linea
+            	escriba "Accesorio encontrado:"
+              	llamar MostrarProductosT()
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vTenis.aLetrasModelos[i, j] = articulo Entonces
+            llamar nueva_linea
+                escriba "Accesorio encontrado:"
+                llamar MostrarProductosT()
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vTenis.aLetrasTallas[i, j] = articulo Entonces
+            llamar nueva_linea
+                escriba "Accesorio encontrado:"
+                llamar MostrarProductosT()
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Si No encontrar entonces
+    llamar nueva_linea
+    Escriba "no se encontro el accesorio buscado" 
+    Fin Si                           
+Fin
+
+Procedimiento BuscarPorAccesorios(cadena [50] articulo)
+Inicio 
+encontrar <- falso
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vAccesorios.aLetrasMarcas[i, j] = articulo Entonces
+            llamar nueva_linea
+            	escriba "Accesorio encontrado:"
+                escriba "Marca: "
+                escriba vAccesorios.aLetrasMarcas[i, j]
+                escriba "| Color: "
+                escriba vAccesorios.aLetrasColores[i, j]
+                escriba "| Modelo: "
+                escriba vAccesorios.aLetrasModelos[i, j]
+                escriba "| Talla: " 
+                escriba vAccesorios.aLetrasTallas[i, j]
+                escriba "| Precio: "
+                escriba vAccesorios.aNumerosPrecios[i, j]
+                escriba " pesos mexicanos."
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vAccesorios.aLetrasModelos[i, j] = articulo Entonces
+            llamar nueva_linea
+                escriba "Accesorio encontrado:"
+                escriba "Marca: "
+                escriba vAccesorios.aLetrasMarcas[i, j]
+                escriba "| Color: "
+                escriba vAccesorios.aLetrasColores[i, j]
+                escriba "| Modelo: "
+                escriba vAccesorios.aLetrasModelos[i, j]
+                escriba "| Talla: " 
+                escriba vAccesorios.aLetrasTallas[i, j]
+                escriba "| Precio: "
+                escriba vAccesorios.aNumerosPrecios[i, j]
+                escriba " pesos mexicanos."
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+     Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si vAccesorios.aLetrasTallas[i, j] = articulo Entonces
+            llamar nueva_linea
+                escriba "Accesorio encontrado:"
+                escriba "Marca: "
+                escriba vAccesorios.aLetrasMarcas[i, j]
+                escriba "| Color: "
+                escriba vAccesorios.aLetrasColores[i, j]
+                escriba "| Modelo: "
+                escriba vAccesorios.aLetrasModelos[i, j]
+                escriba "| Talla: " 
+                escriba vAccesorios.aLetrasTallas[i, j]
+                escriba "| Precio: "
+                escriba vAccesorios.aNumerosPrecios[i, j]
+                escriba " pesos mexicanos."
+                encontrar <- Verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    Si No encontrar entonces
+    llamar nueva_linea
+    Escriba "no se encontro el accesorio buscado" 
+    Fin Si
+Fin
+
+
+
+Procedimiento PresentacionEleccionP
+inicio
+continuar <- verdadero
+	repita 
+	llamar nueva_linea
+	escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+	llamar nueva_linea
+	Escriba "|                    Puede buscar un articulo, elegiendo un numero                               |"
+	llamar nueva_linea
+	escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+	llamar nueva_linea
+	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+	llamar nueva_linea
+	Escriba "|           1.- Marca        |   2.- Modelo        |   3.- Talla       |    4.-Seleccionar       |"
+	llamar nueva_linea
+	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+	llamar nueva_linea
+	lea busquedaEspecifica
+	llamar nueva_linea
+		si ( busquedaEspecifica = 1 ) entonces
+			llamar nueva_linea
+			Escriba "Escriba la marca que desea buscar"
+			llamar nueva_linea
+			lea articuloBuscado
+			llamar nueva_linea
+			llamar BuscarPorPlayeras(articuloBuscado)
+			llamar nueva_linea
+			SINO
+				si (busquedaEspecifica = 2) entonces
+				llamar nueva_linea
+				Escriba "Escriba el Modelo que desea buscar"
+				llamar nueva_linea
+				lea articuloBuscado
+				llamar nueva_linea
+				llamar BuscarPorPlayeras(articuloBuscado)
+				llamar nueva_linea
+					SINO
+						si (busquedaEspecifica = 3) entonces
+						llamar nueva_linea
+						Escriba "Escriba la Talla que desea buscar"
+						llamar nueva_linea
+						lea articuloBuscado
+						llamar nueva_linea
+						llamar BuscarPorPlayeras(articuloBuscado)
+						llamar nueva_linea
+						SINO
+							si (busquedaEspecifica = 0 ) entonces
+							llamar nueva_linea
+							Escriba "Gracias por visitar KLON"
+							continuar <- falso
+								SINO
+								llamar nueva_linea
+								Escriba "Por favor ingrese un de las 3 opciones proporcionadas"
+							Fin si 
+						Fin Si
+				Fin Si
+			Fin Si
+	Hasta (continuar = falso)
+fin
+
+Procedimiento PresentacionEleccionPt
+inicio
+continuar <- verdadero
+	repita 
+	llamar nueva_linea
+	escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+	llamar nueva_linea
+	Escriba "|                    Puede buscar un articulo, elegiendo un numero                               |"
+	llamar nueva_linea
+	escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+	llamar nueva_linea
+	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+	llamar nueva_linea
+	Escriba "|           1.- Marca        |   2.- Modelo        |   3.- Talla       |    4.-Seleccionar       |"
+	llamar nueva_linea
+	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+	llamar nueva_linea
+		lea busquedaEspecifica
+	llamar nueva_linea
+		si ( busquedaEspecifica = 1 ) entonces
+			llamar nueva_linea
+			Escriba "Escriba la marca que desea buscar"
+			llamar nueva_linea
+			lea articuloBuscado
+			llamar nueva_linea
+			llamar BuscarPorPantalones(articuloBuscado)
+			llamar nueva_linea
+			SINO
+				si (busquedaEspecifica = 2) entonces
+				llamar nueva_linea
+				Escriba "Escriba el Modelo que desea buscar"
+				llamar nueva_linea
+				lea articuloBuscado
+				llamar nueva_linea
+				llamar BuscarPorPantalones(articuloBuscado)
+				llamar nueva_linea
+					SINO
+						si (busquedaEspecifica = 3) entonces
+						llamar nueva_linea
+						Escriba "Escriba la Talla que desea buscar"
+						llamar nueva_linea
+						lea articuloBuscado
+						llamar nueva_linea
+						llamar BuscarPorPantalones(articuloBuscado)
+						llamar nueva_linea
+						SINO
+							si (busquedaEspecifica = 0 ) entonces
+							llamar nueva_linea
+							Escriba "Gracias por visitar KLON"
+							continuar <- falso
+								SINO
+								llamar nueva_linea
+								Escriba "Por favor ingrese un de las 3 opciones proporcionadas"
+							Fin si 
+						Fin Si
+				Fin Si
+			Fin Si
+	Hasta (continuar = falso)
+fin
+
+Procedimiento PresentacionEleccionV
+inicio
+continuar <- verdadero
+	repita
+	llamar nueva_linea
+	escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+	llamar nueva_linea
+	Escriba "|                    Puede buscar un articulo, elegiendo un numero                               |"
+	llamar nueva_linea
+	escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+	llamar nueva_linea
+	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+	llamar nueva_linea
+	Escriba "|           1.- Marca        |   2.- Modelo        |   3.- Talla       |    4.-Seleccionar       |"
+	llamar nueva_linea
+	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+	llamar nueva_linea
+	lea busquedaEspecifica
+	llamar nueva_linea
+		si ( busquedaEspecifica = 1 ) entonces
+			llamar nueva_linea
+			Escriba "Escriba la marca que desea buscar"
+			llamar nueva_linea
+			lea articuloBuscado
+			llamar nueva_linea
+			llamar BuscarPorVestidos(articuloBuscado)
+			llamar nueva_linea
+				SINO
+					si (busquedaEspecifica = 2) entonces
+					llamar nueva_linea
+					Escriba "Escriba el Modelo que desea buscar"
+					llamar nueva_linea
+					lea articuloBuscado
+					llamar nueva_linea
+					llamar BuscarPorVestidos(articuloBuscado)
+					llamar nueva_linea
+						SINO
+						si (busquedaEspecifica = 3) entonces
+						llamar nueva_linea
+						Escriba "Escriba la Talla que desea buscar"
+						llamar nueva_linea
+						lea articuloBuscado
+						llamar nueva_linea
+						llamar BuscarPorVestidos(articuloBuscado)
+						llamar nueva_linea
+							SINO
+								si (busquedaEspecifica = 0 ) entonces
+							llamar nueva_linea
+							Escriba "Gracias por visitar KLON"
+							continuar <- falso
+								SINO
+								llamar nueva_linea
+								Escriba "Por favor ingrese un de las 3 opciones proporcionadas"
+							Fin si 
+						Fin Si
+				Fin Si
+			Fin Si
+	Hasta (continuar = falso)
+fin
+
+Procedimiento PresentacionEleccionT
+inicio
+continuar <- verdadero
+	repita 
+	llamar nueva_linea
+	escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+	llamar nueva_linea
+	Escriba "|                    Puede buscar un articulo, elegiendo un numero                               |"
+	llamar nueva_linea
+	escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+	llamar nueva_linea
+	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+	llamar nueva_linea
+	Escriba "|           1.- Marca        |   2.- Modelo        |   3.- Talla       |    4.-Seleccionar       |"
+	llamar nueva_linea
+	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+	llamar nueva_linea
+	lea busquedaEspecifica
+	llamar nueva_linea
+		si ( busquedaEspecifica = 1 ) entonces
+			llamar nueva_linea
+			Escriba "Escriba la marca que desea buscar"
+			llamar nueva_linea
+			lea articuloBuscado
+			llamar nueva_linea
+			llamar BuscarPorTenis(articuloBuscado)
+			llamar nueva_linea
+				SINO
+					si (busquedaEspecifica = 2) entonces
+					llamar nueva_linea
+					Escriba "Escriba el Modelo que desea buscar"
+					llamar nueva_linea
+					lea articuloBuscado
+					llamar nueva_linea
+					llamar BuscarPorTenis(articuloBuscado)
+					llamar nueva_linea
+						SINO
+						si (busquedaEspecifica = 3) entonces
+						llamar nueva_linea
+						Escriba "Escriba la Talla que desea buscar"
+						llamar nueva_linea
+						lea articuloBuscado
+						llamar nueva_linea
+						llamar BuscarPorTenis(articuloBuscado)
+						llamar nueva_linea
+							SINO
+								si (busquedaEspecifica = 0 ) entonces
+								llamar nueva_linea
+								Escriba "Gracias por visitar KLON"
+								continuar <- falso
+									SINO
+									llamar nueva_linea
+									Escriba "Por favor ingrese un de las 3 opciones proporcionadas"
+								Fin si 
+						Fin Si
+				Fin Si
+			Fin Si
+	Hasta (continuar = falso)
+Fin
+				
+Procedimiento PresentacionEleccionA
+inicio
+continuar <- verdadero
+	repita 
+	llamar nueva_linea
+	escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+	llamar nueva_linea
+	Escriba "|                    Puede buscar un articulo, elegiendo un numero                               |"
+	llamar nueva_linea
+	escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+	llamar nueva_linea
+	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+	llamar nueva_linea
+	Escriba "|           1.- Marca        |   2.- Modelo        |   3.- Talla       |    4.-Seleccionar       |"
+	llamar nueva_linea
+	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+	llamar nueva_linea
+	lea busquedaEspecifica
+	llamar nueva_linea
+		si ( busquedaEspecifica = 1 ) entonces
+			llamar nueva_linea
+			Escriba "Escriba la marca que desea buscar"
+			llamar nueva_linea
+			lea articuloBuscado
+			llamar nueva_linea
+			llamar BuscarPorAccesorios(articuloBuscado)
+			llamar nueva_linea
+				SINO
+				si (busquedaEspecifica = 2) entonces
+				llamar nueva_linea
+				Escriba "Escriba el Modelo que desea buscar"
+				llamar nueva_linea
+				lea articuloBuscado
+				llamar nueva_linea
+				llamar BuscarPorAccesorios(articuloBuscado)
+				llamar nueva_linea
+					SINO
+						si (busquedaEspecifica = 3) entonces
+						llamar nueva_linea
+						Escriba "Escriba la Talla que desea buscar"
+						llamar nueva_linea
+						lea articuloBuscado
+						llamar nueva_linea
+						llamar BuscarPorAccesorios(articuloBuscado)
+						llamar nueva_linea
+							SINO
+							si (busquedaEspecifica = 0 ) entonces
+							llamar nueva_linea
+							Escriba "Gracias por visitar KLON"
+							continuar <- falso
+								SINO
+								llamar nueva_linea
+								Escriba "Por favor ingrese un de las 3 opciones proporcionadas"
+							Fin si 
+						Fin Si
+				Fin Si
+			Fin Si
+	Hasta (continuar = falso)
+fin
+
 //Procedimiento para cargar segundo menu
 Procedimiento PresentacionNumeroDos
 inicio 
@@ -327,6 +921,7 @@ Si (opcion = 1) Entonces
 	llamar nueva_linea
 	llamar MostrarPlayeras()
 	llamar nueva_linea
+	llamar PresentacionEleccionP()
 		SINO
 		Si (opcion = 2) Entonces
 			llamar PresentacionNumeroDos()
@@ -335,6 +930,7 @@ Si (opcion = 1) Entonces
 			llamar nueva_linea
 			llamar MostrarPantalones()
 			llamar nueva_linea
+			llamar PresentacionEleccionPt()
 			SINO
 				Si (opcion = 3) Entonces
 					llamar PresentacionNumeroDos()
@@ -343,6 +939,7 @@ Si (opcion = 1) Entonces
 					llamar nueva_linea
 					llamar MostrarVestidos()
 					llamar nueva_linea
+					llamar PresentacionEleccionV()
 					SINO
 						Si (opcion = 4) Entonces
 							llamar PresentacionNumeroDos()
@@ -351,6 +948,7 @@ Si (opcion = 1) Entonces
 							llamar nueva_linea
 							llamar MostrarTenis()
 							llamar nueva_linea
+							llamar PresentacionEleccionT()
 							SINO
 								Si (opcion = 5) Entonces 
 								 	llamar PresentacionNumeroDos()
@@ -359,6 +957,8 @@ Si (opcion = 1) Entonces
 									llamar nueva_linea
 									llamar MostrarAccesorios()
 									llamar nueva_linea
+									llamar PresentacionEleccionA()
+									
 									SINO
 										Si (opcion = 6) Entonces
 										llamar PresentacionNumeroDos()
