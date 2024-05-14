@@ -1,4 +1,5 @@
 Tipo tArchivo es archivo secuencial
+//Se hacen los registros para cada articulo con sus respectivas variables
 registro rPlayeras
 arreglo[2,5] de cadena [20] aLetrasMarcas
 arreglo[2,5] de cadena [20] aLetrasColores
@@ -40,6 +41,10 @@ arreglo[2,5] de entero aNumerosPrecios
 fin registro
 
 
+registro rCompras
+cadena[50]datoUno
+fin registro
+
 //variables globales
 
 entero i
@@ -47,11 +52,13 @@ entero j
 entero busquedaEspecifica
 
 cadena [100] articuloBuscado
+cadena [50] mercanciaUno
 
 booleano continuar
 booleano encontrar
 
-
+entero total
+real totaliva
 
 //Asignacion de variables
 tArchivo pArchivo
@@ -60,11 +67,15 @@ rPantalones vPantalones
 rVestidos vVestidos
 rTenis vTenis
 rAccesorios vAccesorios
+rCompras vCompras
+//Codigo del procedimiento para mandar a extraer la informacion de la base de datos
+// de los articulos y leerlos
 
 Procedimiento ObtenerPlayeras
 Inicio
   abrir "C:\Users\et_de\OneDrive\Escritorio\ProyectoCompras\datosPlayerasLPP.txt" como pArchivo para Lectura
 	llamar nueva_linea
+	//Se usa la funcion para para no tener que estar solicitando los datos uno por uno
 	para i<- 1 hasta 2 haga
 		para j <- 1 hasta 5 haga
 		Leer pArchivo,vPlayeras.aLetrasMarcas[i,j]
@@ -136,7 +147,7 @@ abrir "C:\Users\et_de\OneDrive\Escritorio\ProyectoCompras\datosAccesoriosLPP.txt
 	fin para
 cerrar pArchivo
 Fin
-
+//Codigo para despues de haber leido los datos de la base de datos se escriban
 Procedimiento MostrarProductosP
 inicio
 	escriba "Marca: "
@@ -196,7 +207,7 @@ escriba "Marca: "
             escriba vTenis.aNumerosPrecios[i,j]
             escriba " pesos mexicanos."
 Fin
-
+//Codigo para imprimir todos los datos previamente escritos y leidos 
 Procedimiento MostrarPlayeras
 inicio
 escriba "***Playeras***"
@@ -316,12 +327,13 @@ llamar nueva_linea
         fin para
 	fin para
 Fin
-
+//Codigo para buscar productos
 Procedimiento BuscarPorPlayeras(cadena [50] articulo)
 inicio 
 encontrar <- falso
     Para i <- 1 Hasta 2 Haga
         Para j <- 1 Hasta 5 Haga
+        //Se usa condicional si entonces para poder comparar variables y encontrar los articulos 
             Si vPlayeras.aLetrasMarcas[i, j] = articulo Entonces
             llamar nueva_linea
             	escriba "Accesorio encontrado:"
@@ -355,7 +367,7 @@ encontrar <- falso
     Escriba "no se encontro el accesorio buscado" 
     Fin Si                           
 fin
-
+//se repite el mismo procedimiento para buscar cada articulo
 Procedimiento BuscarPorPantalones(cadena [50] articulo)
 inicio 
 Para i <- 1 Hasta 2 Haga
@@ -535,6 +547,7 @@ encontrar <- falso
             Fin Si
         Fin Para
     Fin Para
+      //en caso de no cumplir con la funcion si entonces, se dice que no se encontro el articulo
     Si No encontrar entonces
     llamar nueva_linea
     Escriba "no se encontro el accesorio buscado" 
@@ -542,7 +555,7 @@ encontrar <- falso
 Fin
 
 
-
+//Codigo para imprimir las prendas seleccionadas con toda su informacion 
 Procedimiento PresentacionEleccionP
 inicio
 continuar <- verdadero
@@ -560,6 +573,7 @@ continuar <- verdadero
 	llamar nueva_linea
 	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
 	llamar nueva_linea
+		//Codigo para buscar un articulo por sus datos especificos 
 	lea busquedaEspecifica
 	llamar nueva_linea
 		si ( busquedaEspecifica = 1 ) entonces
@@ -602,7 +616,7 @@ continuar <- verdadero
 			Fin Si
 	Hasta (continuar = falso)
 fin
-
+//Codigo que imprime menu para buscar un articulo en especifico 
 Procedimiento PresentacionEleccionPt
 inicio
 continuar <- verdadero
@@ -725,7 +739,7 @@ fin
 
 Procedimiento PresentacionEleccionT
 inicio
-continuar <- verdadero
+continuar <- verdaderol
 	repita 
 	llamar nueva_linea
 	escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
@@ -785,6 +799,7 @@ Fin
 				
 Procedimiento PresentacionEleccionA
 inicio
+//abrir "C:\Users\et_de\OneDrive\Escritorio\ProyectoCompras\ticket.txt" como pArchivo para Escritura
 continuar <- verdadero
 	repita 
 	llamar nueva_linea
@@ -809,7 +824,9 @@ continuar <- verdadero
 			lea articuloBuscado
 			llamar nueva_linea
 			llamar BuscarPorAccesorios(articuloBuscado)
+			//mercanciaUno <- BuscarPorAccesorios(articuloBuscado)
 			llamar nueva_linea
+			//Escribir BuscarPorAccesorios(articuloBuscado)
 				SINO
 				si (busquedaEspecifica = 2) entonces
 				llamar nueva_linea
@@ -829,6 +846,14 @@ continuar <- verdadero
 						llamar BuscarPorAccesorios(articuloBuscado)
 						llamar nueva_linea
 							SINO
+							si (busquedaEspecifica = 4) entonces
+							llamar nueva_linea
+							lea articuloBuscado
+							llamar nueva_linea
+							llamar BuscarPorAccesorios(articuloBuscado)
+							//Escribir buscarPorAccesorios(articuloBuscado)
+							llamar nueva_linea
+								SINO
 							si (busquedaEspecifica = 0 ) entonces
 							llamar nueva_linea
 							Escriba "Gracias por visitar KLON"
@@ -838,9 +863,11 @@ continuar <- verdadero
 								Escriba "Por favor ingrese un de las 3 opciones proporcionadas"
 							Fin si 
 						Fin Si
+						Fin Si
 				Fin Si
 			Fin Si
 	Hasta (continuar = falso)
+	//cerrar pArchivo
 fin
 
 //Procedimiento para cargar segundo menu
@@ -858,7 +885,7 @@ escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Fin
 
 
-
+//Codigo de la presentacion de la pagina al usuario junto con la informacion mas destacada
 Procedimiento Presentacion
 entero opcion
 inicio
@@ -914,6 +941,7 @@ lea opcion
 llamar nueva_linea
 escriba "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
 llamar nueva_linea
+//Codigo que presenta las opciones elegidas del menu
 Si (opcion = 1) Entonces
 	llamar PresentacionNumeroDos()
 	llamar nueva_linea
@@ -997,32 +1025,44 @@ fin si
 Hasta (continuar = falso)
 Fin
 
+procedimiento titulo
+inicio
+escriba "------------------------------ TIENDA KLON-------------------------------"
+llamar nueva_linea
+escriba "----------------------------------TICKET---------------------------------"
+llamar nueva_linea
+escriba "|      PRODUCTOS                                             PRECIO     |"
+fin
+
+procedimiento ingresarproductos
+inicio
+escriba "-------------------------------------------------------------------------"
+llamar nueva_linea
+escriba "|                                                                       |"
+ //Ingresa datos del ticket//
+llamar nueva_linea
+total<- 1000
+escriba "| El total de tu compra es: -----------------------------------" , total    
+llamar nueva_linea
+totaliva<-total + (total*0.16)
+escriba "| El precio mas iva es de: ------------------------------------" , totaliva
+llamar nueva_linea
+escriba "-------------------------------------------------------------------------"
+llamar nueva_linea
+escriba "| Tienda Klon agradece su compra :)                                     |"
+llamar nueva_linea
+escriba "| Para devoluciones tiene los proximos 30 dias presentando este ticket  |"   
+llamar nueva_linea
+escriba "-------------------------------------------------------------------------" 
+
+fin
+
 //Programa inicial
 inicio
 llamar Presentacion()
 llamar nueva_linea
-
+llamar titulo()
+llamar nueva_linea
+llamar Ingresarproductos()
 
 fin
-
-/*programa inicial
-inicio 
-llamar ObtenerPlayeras()
-llamar ObtenerPantalones()
-llamar ObtenerVestidos()
-llamar ObtenerTenis()
-llamar ObtenerAccesorios()
-
-llamar Presentacion()
-llamar nueva_linea
-
-/*llamar MostrarPlayeras()
-llamar nueva_linea
-llamar MostrarPantalones()
-llamar nueva_linea
-llamar MostrarVestidos()
-llamar nueva_linea
-llamar MostrarTenis()
-llamar nueva_linea
-llamar MostrarAccesorios()
-*/
