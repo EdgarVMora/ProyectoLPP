@@ -610,6 +610,10 @@ continuar <- verdadero
 	llamar nueva_linea
 	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
 	llamar nueva_linea
+	escriba "|           5.-Regresar al Menu                                                                  |"
+	llamar nueva_linea
+	escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
+	llamar nueva_linea
 		//Codigo para buscar un articulo por sus datos especificos 
 	lea busquedaEspecifica
 	llamar nueva_linea
@@ -651,22 +655,23 @@ continuar <- verdadero
 							lea modeloElegido
 							llamar nueva_linea
 							llamar ElegirPorPlayeras()
+							SINO
+								si(busquedaEspecifica = 5) entonces
+								llamar Presentacion()
 								SINO
-								si (busquedaEspecifica = 0 ) entonces
-								llamar nueva_linea
-								Escriba "Gracias por visitar KLON"
-								continuar <- falso
-								SINO
+									si (busquedaEspecifica = 0 ) entonces
 									llamar nueva_linea
-									Escriba "Por favor ingrese un de las 3 opciones proporcionadas"
-								Fin si 
+									Escriba "Gracias por visitar KLON"
+									continuar <- falso
+										SINO
+										llamar nueva_linea
+										Escriba "Por favor ingrese un de las 3 opciones proporcionadas"
+									Fin si 
+								Fin Si
 							Fin Si
-				
 						Fin Si
-				
 					Fin Si
 				Fin Si
-		
 	Hasta (continuar = falso)
 	
 fin
@@ -1111,8 +1116,8 @@ llamar productosElegidos()
 llamar nueva_linea
 para i <- 1 hasta cantidadProductosElegidos haga
 llamar nueva_linea
-escriba vCarrito[i].Precio
-llamar nueva_linea
+escriba "| Su producto cuesta :", vCarrito[i].Precio
+
 total<- total + vCarrito[i].Precio
 fin para
 
