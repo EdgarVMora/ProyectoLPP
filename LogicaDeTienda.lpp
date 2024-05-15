@@ -40,24 +40,34 @@ arreglo[2,5] de cadena [20] aLetrasTallas
 arreglo[2,5] de entero aNumerosPrecios
 fin registro
 
-
-registro rCompras
-cadena[50]datoUno
+registro rCarrito
+cadena [50] Marca
+cadena [50] Color
+cadena [50] Modelo
+cadena [50] Talla
+entero Precio  
 fin registro
+
+arreglo [50] de rCarrito vCarrito
+
 
 //variables globales
 
 entero i
 entero j
 entero busquedaEspecifica
+entero total
+entero cantidadProductosElegidos
 
 cadena [100] articuloBuscado
 cadena [50] mercanciaUno
+cadena [50] marcaElegida
+cadena [50] modeloElegido
 
 booleano continuar
 booleano encontrar
 
-entero total
+
 real totaliva
 
 //Asignacion de variables
@@ -67,7 +77,7 @@ rPantalones vPantalones
 rVestidos vVestidos
 rTenis vTenis
 rAccesorios vAccesorios
-rCompras vCompras
+
 //Codigo del procedimiento para mandar a extraer la informacion de la base de datos
 // de los articulos y leerlos
 
@@ -367,6 +377,33 @@ encontrar <- falso
     Escriba "no se encontro el accesorio buscado" 
     Fin Si                           
 fin
+
+Procedimiento ElegirPorPlayeras
+inicio
+encontrar <- falso
+Para i <- 1 Hasta 2 Haga
+        Para j <- 1 Hasta 5 Haga
+            Si (vPlayeras.aLetrasMarcas[i, j] = marcaElegida) y (vPlayeras.aLetrasModelos[i,j] = modeloElegido)  Entonces
+            llamar nueva_linea
+            	escriba "Accesorio encontrado:"
+             	llamar MostrarProductosP
+                cantidadProductosElegidos <- cantidadProductosElegidos + 1
+                vCarrito[cantidadProductosElegidos].Marca <- vPlayeras.aLetrasMarcas[i,j]
+                vCarrito[cantidadProductosElegidos].Color <- vPlayeras.aLetrasColores[i,j]
+                vCarrito[cantidadProductosElegidos].Modelo <- vPlayeras.aLetrasModelos[i,j]
+                vCarrito[cantidadProductosElegidos].Talla <- vPlayeras.aLetrasTallas[i,j]
+                vCarrito[cantidadProductosElegidos].Precio <- vPlayeras.aNumerosPrecios[i,j]
+                encontrar <- verdadero
+            Fin Si
+        Fin Para
+    Fin Para
+    si no encontrar entonces
+    llamar nueva_linea
+    escriba "no se encontro"
+    Fin Si
+fin
+
+
 //se repite el mismo procedimiento para buscar cada articulo
 Procedimiento BuscarPorPantalones(cadena [50] articulo)
 inicio 
@@ -603,19 +640,37 @@ continuar <- verdadero
 						llamar BuscarPorPlayeras(articuloBuscado)
 						llamar nueva_linea
 						SINO
-							si (busquedaEspecifica = 0 ) entonces
+							si (busquedaEspecifica = 4) entonces
 							llamar nueva_linea
-							Escriba "Gracias por visitar KLON"
-							continuar <- falso
+							escriba "ingrese la marca que ha decidido"
+							llamar nueva_linea
+							lea marcaElegida
+							llamar nueva_linea
+							escriba "Ingrese el modelo que ha decidido"
+							llamar nueva_linea
+							lea modeloElegido
+							llamar nueva_linea
+							llamar ElegirPorPlayeras()
 								SINO
+								si (busquedaEspecifica = 0 ) entonces
 								llamar nueva_linea
-								Escriba "Por favor ingrese un de las 3 opciones proporcionadas"
-							Fin si 
+								Escriba "Gracias por visitar KLON"
+								continuar <- falso
+								SINO
+									llamar nueva_linea
+									Escriba "Por favor ingrese un de las 3 opciones proporcionadas"
+								Fin si 
+							Fin Si
+				
 						Fin Si
+				
+					Fin Si
 				Fin Si
-			Fin Si
+		
 	Hasta (continuar = falso)
+	
 fin
+
 //Codigo que imprime menu para buscar un articulo en especifico 
 Procedimiento PresentacionEleccionPt
 inicio
@@ -847,11 +902,7 @@ continuar <- verdadero
 						llamar nueva_linea
 							SINO
 							si (busquedaEspecifica = 4) entonces
-							llamar nueva_linea
-							lea articuloBuscado
-							llamar nueva_linea
-							llamar BuscarPorAccesorios(articuloBuscado)
-							//Escribir buscarPorAccesorios(articuloBuscado)
+							escriba "hola"
 							llamar nueva_linea
 								SINO
 							si (busquedaEspecifica = 0 ) entonces
@@ -933,7 +984,7 @@ llamar nueva_linea
 Repita
 escriba "|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |"
 llamar nueva_linea
-escriba "|   Elija un numero dentro de nuestras opciones para comprar ahora y estrenar mañana             |"
+escriba "|   Elija un numero dentro de nuestras opciones para comprar ahora y estrenar maï¿½ana             |"
 llamar nueva_linea
 escriba "| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|"
 llamar nueva_linea
@@ -1025,6 +1076,21 @@ fin si
 Hasta (continuar = falso)
 Fin
 
+Procedimiento productosElegidos
+inicio
+    escriba "Productos elegidos:"
+    llamar nueva_linea
+    Para i <- 1 Hasta cantidadProductosElegidos Haga
+        llamar nueva_linea
+        escriba "Marca: ", vCarrito[i].Marca
+        escriba "| Color: ", vCarrito[i].Color
+        escriba "| Modelo: ", vCarrito[i].Modelo
+        escriba "| Talla: ", vCarrito[i].Talla
+        escriba "| Precio: ", vCarrito[i].Precio
+    Fin Para
+fin
+
+
 procedimiento titulo
 inicio
 escriba "------------------------------ TIENDA KLON-------------------------------"
@@ -1041,7 +1107,15 @@ llamar nueva_linea
 escriba "|                                                                       |"
  //Ingresa datos del ticket//
 llamar nueva_linea
-total<- 1000
+llamar productosElegidos()
+llamar nueva_linea
+para i <- 1 hasta cantidadProductosElegidos haga
+llamar nueva_linea
+escriba vCarrito[i].Precio
+llamar nueva_linea
+total<- total + vCarrito[i].Precio
+fin para
+
 escriba "| El total de tu compra es: -----------------------------------" , total    
 llamar nueva_linea
 totaliva<-total + (total*0.16)
@@ -1059,6 +1133,9 @@ fin
 
 //Programa inicial
 inicio
+cantidadProductosElegidos <- 0 
+total <- 0
+totaliva <- 0
 llamar Presentacion()
 llamar nueva_linea
 llamar titulo()
