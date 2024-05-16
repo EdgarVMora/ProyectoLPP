@@ -1,0 +1,50 @@
+ARMANI
+Azul
+Polo
+S
+1200
+CALVIN KLEIN
+Rojo
+Camisa
+M
+1300
+GUESS
+Blanco
+Playera deportiva
+L
+1400
+LACOSTE
+Negro
+Sport
+XL
+1500
+RALPH LAUREN
+Gris
+Sport
+XXL
+1600
+AMERICAN EAGLE
+Blanco
+Playera deportiva
+M
+1300
+CALVIN KLEIN
+Negro
+Camisa
+L
+1400
+GUESS
+Azul
+Polo
+XL
+1500
+HUGO BOSS
+Gris
+Polo
+S
+1600
+HYM
+Rojo
+Camisa
+XXL
+1700

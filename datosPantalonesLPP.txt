@@ -1,0 +1,50 @@
+Calvin Klein
+demin
+Skinny
+S
+2200
+Guess
+demin
+Slim Fit
+M
+2300
+HYM
+demin
+Straight
+L
+2400
+Levis
+demin
+Regular
+XL
+2500
+Levis
+demin
+Slim Fit
+XXL
+2600
+Calvin Klein
+demin
+Regular
+M
+2300
+Guess
+demin
+Slim Fit
+L
+2400
+Guess
+demin
+Skinny
+XL
+2500
+HYM
+demin
+Straight
+S
+2600
+Levis
+demin
+Regular
+XXL
+2700
